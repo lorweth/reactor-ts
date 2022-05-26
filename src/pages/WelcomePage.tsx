@@ -21,10 +21,10 @@ export default function WelcomePage() {
       <StyledImg src="/img/apple-icon.png" alt="greeting-img" />
       <Box as="div" display="flex" flexDirection="column" justifyContent="center" p={5}>
         <Heading as="h1" size="3xl" fontWeight="bold" color="blue.400">
-          Welcome to react-type-template
+          Welcome to reactor-ts template
         </Heading>
         <Text as="p" fontSize="lg" color="gray.500" mt={3}>
-          This is a template for react-type-template.
+          This is a template for reactor-ts template.
         </Text>
       </Box>
     </Box>

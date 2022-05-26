@@ -1,23 +1,16 @@
 import React from 'react';
 import { RouteObject } from 'react-router-dom';
 
-const Main = React.lazy(() => import('./shared/layouts/main-layout'));
 const WelcomePage = React.lazy(() => import('./pages/WelcomePage'));
 
 const ROUTES: Array<RouteObject> = [
   {
     path: '/',
-    element: <Main />,
-    children: [
-      {
-        index: true,
-        element: <WelcomePage />,
-      },
-      {
-        path: '/welcome',
-        element: <WelcomePage />,
-      },
-    ],
+    element: <WelcomePage />,
+  },
+  {
+    path: '/welcome',
+    element: <WelcomePage />,
   },
 ];
 
@@ -30,4 +23,4 @@ export const getRoutes = (): { routes: Array<RouteObject>; modalRoutes: Array<Ro
     routes: ROUTES,
     modalRoutes: MODAL_ROUTES,
   };
-}
+};

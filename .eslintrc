@@ -27,10 +27,19 @@
     "@typescript-eslint/member-ordering": [
       "error",
       {
-        "default": ["static-field", "instance-field", "constructor", "static-method", "instance-method"]
+        "default": [
+          "static-field",
+          "instance-field",
+          "constructor",
+          "static-method",
+          "instance-method"
+        ]
       }
     ],
-    "@typescript-eslint/no-parameter-properties": ["warn", { "allows": ["public", "private", "protected"] }],
+    "@typescript-eslint/no-parameter-properties": [
+      "warn",
+      { "allows": ["public", "private", "protected"] }
+    ],
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
@@ -44,6 +53,10 @@
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/restrict-plus-operands": "off",
     "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-inferrable-types": {
+      "ignoreParameters": true,
+      "ignoreProperties": false
+    },
     "@typescript-eslint/ban-types": [
       "error",
       {

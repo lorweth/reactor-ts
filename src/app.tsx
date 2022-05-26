@@ -1,8 +1,8 @@
-import { Box, Container } from '@chakra-ui/react';
 import React, { Suspense } from 'react';
-import { BrowserRouter, Location, Route, Routes, useLocation, useRoutes } from 'react-router-dom';
-import WelcomePage from './pages/WelcomePage';
+import { Location, Route, Routes, useLocation, useRoutes } from 'react-router-dom';
 import { getRoutes } from './routes';
+import AppBar from './shared/layouts/appbar';
+import Main from './shared/layouts/main-layout';
 
 export default function App() {
   const routes = getRoutes();
@@ -23,12 +23,13 @@ export default function App() {
   };
 
   return (
-    <Box as="div">
+    <Main>
+      <AppBar />
       <Suspense fallback={<div>Loading...</div>}>
         {elm}
 
         {state?.backgroundLocation && modalElm()}
       </Suspense>
-    </Box>
+    </Main>
   );
 }

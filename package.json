@@ -1,8 +1,7 @@
 {
-  "name": "react-type-template",
-  "homepage": "",
+  "name": "reactor-ts",
   "version": "1.0.0",
-  "description": "A template to build web app out of the box",
+  "description": "A template to build web app out of the box with react",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "start": "npm run dev",
