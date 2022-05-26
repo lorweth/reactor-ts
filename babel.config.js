@@ -1,5 +1,7 @@
-module.exports = {
-  presets: [
+module.exports = function (api) {
+  api.cache(true);
+
+  const presets = [
     '@babel/preset-env',
     '@babel/typescript',
     [
@@ -8,8 +10,10 @@ module.exports = {
         runtime: 'automatic',
       },
     ],
-  ],
-  plugins: [
+  ];
+
+  const plugins = [
+    'macros', // <-- babel-plugin-macros , fontawesone icon dynamic import need this
     [
       'module-resolver',
       {
@@ -20,8 +24,9 @@ module.exports = {
         extensions: ['.js', '.ts', '.jsx', '.tsx'],
       },
     ],
-  ],
-  env: {
+  ];
+
+  const env = {
     test: {
       plugins: [
         'react-hot-loader/babel',
@@ -34,5 +39,11 @@ module.exports = {
         ],
       ],
     },
-  },
+  };
+
+  return {
+    presets,
+    plugins,
+    env,
+  };
 };
