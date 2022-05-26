@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+const { name, version, description } = require('../package.json');
+
 module.exports = {
   entry: ['react-hot-loader/patch', './src/index.tsx'],
   resolve: {
@@ -13,6 +15,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../public', 'index.html'),
+      title: name,
+      description: description,
       inject: 'body',
     }),
   ],

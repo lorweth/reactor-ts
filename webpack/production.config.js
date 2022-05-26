@@ -37,20 +37,12 @@ module.exports = {
           to: DIST,
         },
         {
-          from: resolve(PUBLIC, 'favicon.ico'),
-          to: DIST,
-        },
-        {
           from: resolve(PUBLIC, 'manifest.json'),
           to: DIST,
         },
         {
-          from: resolve(PUBLIC, 'logo192.png'),
-          to: DIST,
-        },
-        {
-          from: resolve(PUBLIC, 'logo512.png'),
-          to: DIST,
+          from: resolve(PUBLIC, 'img'),
+          to: resolve(DIST, 'img'),
         },
       ],
       options: {
