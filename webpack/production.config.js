@@ -3,6 +3,7 @@ const { DefinePlugin } = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { DIST, PUBLIC } = require('./constants');
@@ -27,7 +28,32 @@ module.exports = {
       },
     },
     minimize: true,
-    minimizer: [new TerserPlugin(), new CssMinimizerPlugin(), new CleanWebpackPlugin()],
+    minimizer: [
+      new TerserPlugin(),
+      new CssMinimizerPlugin(),
+      new CleanWebpackPlugin(),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.squooshMinify,
+          options: {
+            encodeOptions: {
+              mozjpeg: {
+                // That setting might be close to lossless, but it’s not guaranteed
+                // https://github.com/GoogleChromeLabs/squoosh/issues/85
+                quality: 100,
+              },
+              webp: {
+                lossless: 1,
+              },
+              avif: {
+                // https://github.com/GoogleChromeLabs/squoosh/blob/dev/codecs/avif/enc/README.md
+                cqLevel: 0,
+              },
+            },
+          },
+        },
+      }),
+    ],
   },
   plugins: [
     new CopyPlugin({
@@ -73,6 +99,10 @@ module.exports = {
           },
         ],
         include: /\.module\.css$/,
+      },
+      {
+        test: /\.(jpe?g|png)$/i,
+        type: 'asset',
       },
     ],
   },
