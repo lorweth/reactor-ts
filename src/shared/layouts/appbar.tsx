@@ -22,8 +22,8 @@ type AppBarProps = {
 
 const BrandIcon = chakra('img', {
   baseStyle: {
-    width: '3rem',
-    heith: 'auto',
+    width: '2rem',
+    height: 'auto',
   },
 });
 
@@ -34,7 +34,7 @@ export default function AppBar(props) {
   return (
     <Flex as="nav" align="center" justify="space-between" wrap="wrap" padding={6} sx={props.sx}>
       <Flex align="center" mr={5}>
-        <BrandIcon src="/img/apple-icon.png" alt="logo" />
+        <BrandIcon src="/assets/img/brand-icon.svg" alt="logo" />
         <Heading as="h1" size="lg" letterSpacing={'tighter'}>
           &nbsp; ReactTypeTemplate
         </Heading>
