@@ -5,7 +5,7 @@ import Main from './shared/layouts/main-layout';
 import pkgJson from '@pkg/package.json';
 import Sidebar, { SidebarItem } from './shared/layouts/sidebar';
 import AppBar from './shared/layouts/appbar';
-import { Box, calc, Drawer } from '@chakra-ui/react';
+import { Box, calc, Drawer, Skeleton } from '@chakra-ui/react';
 import Footer from './shared/layouts/footer';
 
 export default function App() {
@@ -44,10 +44,12 @@ export default function App() {
 
   return (
     <Main>
-      <Sidebar title={title} brandIcon={brandIcon} items={sidebarItems} pos="fixed" />
-      <AppBar title={title} brandIcon={brandIcon} ml={{ base: 0, md: 20, lg: 20 }} />
-      <Box pl={{ base: '0', md: 20 }} pt={20}>
-        <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Skeleton />}>
+        <Sidebar title={title} brandIcon={brandIcon} items={sidebarItems} pos="fixed" />
+      </Suspense>
+      <AppBar title={title} brandIcon={brandIcon} h={20} ml={{ base: 0, md: 20, lg: 20 }} />
+      <Box pl={{ base: '0', md: 20 }}>
+        <Suspense fallback={<Skeleton height="10px" startColor="blue.900" endColor="blue.200" />}>
           {elm}
 
           {state?.backgroundLocation && modalElm()}
