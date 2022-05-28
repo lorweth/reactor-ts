@@ -9,6 +9,7 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
+    "resolveJsonModule": true,
     "suppressImplicitAnyIndexErrors": true,
     "outDir": "build",
     "lib": ["dom", "es2015", "es2016", "es2017"],
@@ -18,8 +19,9 @@
     "checkJs": false,
     "baseUrl": "./",
     "paths": {
-      "src/*": ["./src/*"],
-      "components/*": ["./src/shared/components/*"]
+      "@pkg/*": ["*"],
+      "@src/*": ["./src/*"],
+      "@component/*": ["./src/shared/components/*"]
     },
     "importHelpers": true,
     "esModuleInterop": true,

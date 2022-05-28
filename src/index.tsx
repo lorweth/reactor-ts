@@ -6,12 +6,16 @@ import App from './app';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter } from 'react-router-dom';
 import getTheme from './configs/uitheme';
+import loadIcon from './configs/icon-loader';
 
 // Get store
 const store = getStore();
 
 // Get theme
 const theme = getTheme();
+
+// load icon
+loadIcon();
 
 // Render UI
 render(

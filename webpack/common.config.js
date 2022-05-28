@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const path = require('path');
 
 const { name, version, description } = require('../package.json');
@@ -11,6 +12,7 @@ module.exports = {
       src: path.resolve('./src'),
       'react-dom': '@hot-loader/react-dom',
     },
+    plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
   },
   plugins: [
     new HtmlWebpackPlugin({

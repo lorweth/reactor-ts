@@ -18,7 +18,7 @@ export default function WelcomePage() {
       p={5}
       borderRadius="lg"
     >
-      <StyledImg src="/img/apple-icon.png" alt="greeting-img" />
+      <StyledImg src="/assets/img/brand-icon.svg" alt="greeting-img" />
       <Box as="div" display="flex" flexDirection="column" justifyContent="center" p={5}>
         <Heading as="h1" size="3xl" fontWeight="bold" color="blue.400">
           Welcome to reactor-ts template

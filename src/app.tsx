@@ -1,10 +1,16 @@
 import React, { Suspense } from 'react';
 import { Location, Route, Routes, useLocation, useRoutes } from 'react-router-dom';
 import { getRoutes } from './routes';
-import AppBar from './shared/layouts/appbar';
 import Main from './shared/layouts/main-layout';
+import pkgJson from '@pkg/package.json';
+import Sidebar, { SidebarItem } from './shared/layouts/sidebar';
+import AppBar from './shared/layouts/appbar';
+import { Box, Drawer } from '@chakra-ui/react';
 
 export default function App() {
+  const title = pkgJson.name;
+  const brandIcon = '/assets/img/brand-icon.svg';
+
   const routes = getRoutes();
   const location = useLocation();
   const state = location.state as { backgroundLocation?: Location };
@@ -22,14 +28,30 @@ export default function App() {
     );
   };
 
-  return (
-    <Main>
-      <AppBar />
-      <Suspense fallback={<div>Loading...</div>}>
-        {elm}
+  const sidebarItems: Array<SidebarItem> = [
+    {
+      name: 'Home',
+      icon: 'home',
+      path: '/',
+    },
+    {
+      name: 'About',
+      icon: 'info-circle',
+      path: '/about',
+    },
+  ];
 
-        {state?.backgroundLocation && modalElm()}
-      </Suspense>
+  return (
+    <Main title={pkgJson.name} brandIcon="/assets/img/brand-icon.svg">
+      <AppBar title={title} brandIcon={brandIcon} />
+      <Sidebar title={title} brandIcon={brandIcon} items={sidebarItems} showDetail={true} />
+      <Box ml={{ base: 0, md: 70 }} p="4">
+        <Suspense fallback={<div>Loading...</div>}>
+          {elm}
+
+          {state?.backgroundLocation && modalElm()}
+        </Suspense>
+      </Box>
     </Main>
   );
 }
