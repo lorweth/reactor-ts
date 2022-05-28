@@ -59,9 +59,7 @@ const SidebarContent = ({ open, title, brandIcon, items, toggleVisibility, ...re
     as="aside"
     flexDirection="column"
     transition="2s ease"
-    bg={useColorModeValue('white', 'gray.900')}
-    borderRight="1px"
-    borderRightColor={useColorModeValue('gray.200', 'gray.700')}
+    bg={useColorModeValue('gray.200', 'gray.900')}
     h="full"
     pos="fixed"
     {...rest}
@@ -79,9 +77,6 @@ const SidebarContent = ({ open, title, brandIcon, items, toggleVisibility, ...re
 
       <Box display="flex" alignItems="center">
         <BrandIcon src={brandIcon} alt="logo" />
-        <Heading as="h5" size="lg" ml={2} display={{ base: 'none', md: 'flex' }}>
-          {title}
-        </Heading>
       </Box>
     </Box>
 
@@ -100,7 +95,7 @@ type SidebarProps = {
   items: Array<SidebarItem>;
 } & BoxProps;
 export default function Sidebar({ title, brandIcon, items }: SidebarProps) {
-  const drawerSize = useBreakpointValue({ base: 'md', md: 'md' });
+  const drawerSize = useBreakpointValue({ base: 'full', md: 'xs' });
   return (
     <DisclosureSidebarContext.Consumer>
       {({ open, toggleVisibility }) => (

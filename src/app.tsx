@@ -6,6 +6,7 @@ import pkgJson from '@pkg/package.json';
 import Sidebar, { SidebarItem } from './shared/layouts/sidebar';
 import AppBar from './shared/layouts/appbar';
 import { Box, Drawer } from '@chakra-ui/react';
+import Footer from './shared/layouts/footer';
 
 export default function App() {
   const title = pkgJson.name;
@@ -42,7 +43,7 @@ export default function App() {
   ];
 
   return (
-    <Main title={pkgJson.name} brandIcon="/assets/img/brand-icon.svg">
+    <Main>
       <AppBar title={title} brandIcon={brandIcon} />
       <Sidebar title={title} brandIcon={brandIcon} items={sidebarItems} showDetail={true} />
       <Box ml={{ base: 0, md: 70 }} p="4">
@@ -52,6 +53,7 @@ export default function App() {
           {state?.backgroundLocation && modalElm()}
         </Suspense>
       </Box>
+      <Footer />
     </Main>
   );
 }

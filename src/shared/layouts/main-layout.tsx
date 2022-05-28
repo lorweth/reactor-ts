@@ -9,12 +9,7 @@ const StyledContainer = chakra('div', {
   },
 });
 
-type MainProps = {
-  title: string;
-  brandIcon: string;
-  children: React.ReactNode;
-};
-export default function Main({ children }: MainProps) {
+export default function Main({ children }) {
   const [open, setOpen] = React.useState(false);
   const toggleVisibility = () => setOpen(!open);
 
