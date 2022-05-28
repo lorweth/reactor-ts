@@ -1,5 +1,6 @@
 import { Box, chakra, Heading, styled, Text } from '@chakra-ui/react';
 import React from 'react';
+import Paper from '../shared/components/Paper';
 
 const StyledImg = chakra('img', {
   baseStyle: {
@@ -11,15 +12,11 @@ const StyledImg = chakra('img', {
 
 export default function WelcomePage() {
   return (
-    <Box
-      as="div"
-      display="flex"
-      flexDirection={{ base: 'row', xs: 'column' }}
-      p={5}
-      borderRadius="lg"
-    >
-      <StyledImg src="/assets/img/brand-icon.svg" alt="greeting-img" />
-      <Box as="div" display="flex" flexDirection="column" justifyContent="center" p={5}>
+    <Paper flexDirection={{ base: 'column', md: 'row' }}>
+      <Box display="flex" flexDir="row" justifyContent="center">
+        <StyledImg src="/assets/img/brand-icon.svg" alt="greeting-img" />
+      </Box>
+      <Box as="div" p={5}>
         <Heading as="h1" size="3xl" fontWeight="bold" color="blue.400">
           Welcome to reactor-ts template
         </Heading>
@@ -27,6 +24,6 @@ export default function WelcomePage() {
           This is a template for reactor-ts template.
         </Text>
       </Box>
-    </Box>
+    </Paper>
   );
 }

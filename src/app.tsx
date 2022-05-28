@@ -36,6 +36,11 @@ export default function App() {
       path: '/',
     },
     {
+      name: 'Counter',
+      icon: 'calculator',
+      path: '/counter',
+    },
+    {
       name: 'About',
       icon: 'info-circle',
       path: '/about',
@@ -44,11 +49,9 @@ export default function App() {
 
   return (
     <Main>
-      <Suspense fallback={<Skeleton />}>
-        <Sidebar title={title} brandIcon={brandIcon} items={sidebarItems} pos="fixed" />
-      </Suspense>
+      <Sidebar title={title} brandIcon={brandIcon} items={sidebarItems} pos="fixed" />
       <AppBar title={title} brandIcon={brandIcon} h={20} ml={{ base: 0, md: 20, lg: 20 }} />
-      <Box pl={{ base: '0', md: 20 }}>
+      <Box ml={{ base: '0', md: 20 }} p={5}>
         <Suspense fallback={<Skeleton height="10px" startColor="blue.900" endColor="blue.200" />}>
           {elm}
 

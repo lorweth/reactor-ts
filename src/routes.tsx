@@ -2,6 +2,7 @@ import React from 'react';
 import { RouteObject } from 'react-router-dom';
 
 const WelcomePage = React.lazy(() => import('./pages/WelcomePage'));
+const Counter = React.lazy(() => import('./pages/Counter'));
 
 const ROUTES: Array<RouteObject> = [
   {
@@ -11,6 +12,10 @@ const ROUTES: Array<RouteObject> = [
   {
     path: '/welcome',
     element: <WelcomePage />,
+  },
+  {
+    path: '/counter',
+    element: <Counter />,
   },
 ];
 

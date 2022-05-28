@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
 };
 
-const incrementAsync = createAsyncThunk(
+export const incrementAsync = createAsyncThunk(
   'counter/incrementAsync',
   async ({ count, delay }: { count: number; delay: number }) => {
     await new Promise(resolve => setTimeout(resolve, delay));
@@ -33,10 +33,10 @@ const counterSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(incrementAsync.pending, (state, action) => {
-        loading: true;
+        state.loading = true;
       })
       .addCase(incrementAsync.fulfilled, (state, action) => {
-        loading: false;
+        state.loading = false;
         state.count += action.payload.count;
       });
   },

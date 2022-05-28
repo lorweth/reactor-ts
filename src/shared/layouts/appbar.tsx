@@ -57,8 +57,8 @@ export default function AppBar({ title, brandIcon, ...rest }: AppBarProps) {
             flexDirection="column"
             justifyContent="center"
           >
-            <Button type="button" bg="gray.800" onClick={toggleVisibility} w={18}>
-              <FontAwesomeIcon icon={open ? solid('times') : solid('bars')} />
+            <Button type="button" variant="ghost" onClick={toggleVisibility} w={18}>
+              <FontAwesomeIcon icon={solid('bars')} />
             </Button>
           </Box>
         )}
@@ -73,7 +73,7 @@ export default function AppBar({ title, brandIcon, ...rest }: AppBarProps) {
 
       <Box display="flex" flexDir="row" alignContent="center">
         <Box display="flex" flexDir="column" justifyContent="center" mr={2}>
-          <Button type="button" variant="ghost" bg="gray.800" onClick={toggleColorMode}>
+          <Button type="button" variant="ghost" onClick={toggleColorMode}>
             <FontAwesomeIcon size="lg" icon={useColorModeValue(solid('sun'), solid('moon'))} />
           </Button>
         </Box>
