@@ -4,8 +4,8 @@ import { DisclosureSidebarContext } from './context';
 
 const StyledContainer = chakra('div', {
   baseStyle: {
-    minHeight: '100vh',
-    width: '100vw',
+    minHeight: 'full',
+    width: 'full',
   },
 });
 

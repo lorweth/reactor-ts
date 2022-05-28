@@ -42,12 +42,17 @@ export default function AppBar({ title, brandIcon, ...rest }: AppBarProps) {
       borderBottom="1px solid"
       borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       px={5}
-      py={3}
+      py={2}
       {...rest}
     >
       <DisclosureSidebarContext.Consumer>
         {({ open, toggleVisibility }) => (
-          <Box as="div" display="flex" flexDirection="column" justifyContent="center">
+          <Box
+            as="div"
+            display={{ base: 'flex', md: 'none' }}
+            flexDirection="column"
+            justifyContent="center"
+          >
             <Button type="button" onClick={toggleVisibility} w={18}>
               <FontAwesomeIcon icon={open ? solid('times') : solid('bars')} />
             </Button>

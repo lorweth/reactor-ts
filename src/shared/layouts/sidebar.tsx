@@ -61,21 +61,14 @@ const SidebarContent = ({ open, title, brandIcon, items, toggleVisibility, ...re
     transition="2s ease"
     bg={useColorModeValue('gray.200', 'gray.900')}
     h="full"
-    pos="fixed"
     {...rest}
   >
-    <Box
-      mx={5}
-      my={3}
-      flexDirection="row"
-      justifyContent="space-between"
-      display={open ? 'flex' : 'none'}
-    >
-      <Button type="button" onClick={toggleVisibility}>
-        <FontAwesomeIcon icon={solid('times')} />
+    <Box px={3} my={3} display="flex" flexDirection="row" justifyContent="space-between">
+      <Button type="button" onClick={toggleVisibility} w="full" maxW={20}>
+        <FontAwesomeIcon icon={open ? solid('times') : solid('bars')} />
       </Button>
 
-      <Box display="flex" alignItems="center">
+      <Box display={{ base: 'flex', md: 'none' }} alignItems="center">
         <BrandIcon src={brandIcon} alt="logo" />
       </Box>
     </Box>
@@ -91,10 +84,9 @@ const SidebarContent = ({ open, title, brandIcon, items, toggleVisibility, ...re
 type SidebarProps = {
   title: string;
   brandIcon: string;
-  showDetail: boolean;
   items: Array<SidebarItem>;
 } & BoxProps;
-export default function Sidebar({ title, brandIcon, items }: SidebarProps) {
+export default function Sidebar({ title, brandIcon, items, ...rest }: SidebarProps) {
   const drawerSize = useBreakpointValue({ base: 'full', md: 'xs' });
   return (
     <DisclosureSidebarContext.Consumer>
@@ -108,6 +100,7 @@ export default function Sidebar({ title, brandIcon, items }: SidebarProps) {
             toggleVisibility={toggleVisibility}
             display={{ base: 'none', md: 'block' }}
             w={20}
+            {...rest}
           />
           <Drawer
             autoFocus={false}
